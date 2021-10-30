@@ -1,0 +1,7 @@
+{
+    "git.ignoreLimitWarning": true,
+    "cSpell.words": [
+        "weatherforecast"
+    ],
+    "dotnet-test-explorer.testProjectPath":"DotnetService/Test/Test.csproj"
+}
