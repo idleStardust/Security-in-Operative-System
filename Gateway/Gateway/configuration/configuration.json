@@ -5,11 +5,11 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "dotnet",
+          "Host": "zipservice",
           "Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/dotnet/weatherforecast",
+      "UpstreamPathTemplate": "/weatherforecast",
       "UpstreamHttpMethod": ["GET"]
     }
   ],

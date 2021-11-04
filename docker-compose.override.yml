@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  api-gateway:
+    restart: always
+    ports:
+      - "8000:80"
+      - "8001:443"
+
+  zipservice:
+    ports:
+      - "8002:80"
+      - "8003:443"
+    environment:
+      - DB_CONNECTION_STRING=${DB_CONNECTION_STRING}
+      - LOCAL_CONNECTION_STRING=${LOCAL_DB_CONNECTION_STRING}
+    restart: always

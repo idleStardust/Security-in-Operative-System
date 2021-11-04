@@ -1,42 +1,12 @@
 version: '3.7'
 
 services:
-  client:
-    build:
-      context: Client
-      dockerfile: Dockerfile
-    restart: always
-    tty: true
-    ports:
-      - '8080:80'
-
   api-gateway:
     build:
       context: Gateway
       dockerfile: Dockerfile
-    restart: always
-    ports:
-      - "8000:80"
-      - "8001:443"
 
-  dotnet:
+  zipservice:
     build:
-      context: DotnetService
+      context: WeatherForecastService
       dockerfile: Dockerfile
-    ports:
-      - "8002:80"
-      - "8003:443"
-    environment:
-      - DB_CONNECTION_STRING=${DB_CONNECTION_STRING}
-      - LOCAL_CONNECTION_STRING=${LOCAL_DB_CONNECTION_STRING}
-    restart: always
-
-  db:
-    image: "mcr.microsoft.com/mssql/server"
-    environment:
-      SA_PASSWORD: "Your_password123"
-      ACCEPT_EULA: "Y"  
-    ports:  
-      - '1433:1433'
-    expose:
-      - 1433
