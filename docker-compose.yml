@@ -2,13 +2,13 @@ version: '3.7'
 
 services:
   api-gateway:
-    image: gateway
+    image: abstractize/gateway
     build:
       context: Gateway
       dockerfile: Dockerfile
 
   zipservice:
-    image: zipservice
+    image: abstractize/zipservice
     build:
       context: WeatherForecastService
       dockerfile: Dockerfile
