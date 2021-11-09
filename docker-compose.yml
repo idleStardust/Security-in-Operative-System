@@ -2,11 +2,13 @@ version: '3.7'
 
 services:
   api-gateway:
+    image: gateway
     build:
       context: Gateway
       dockerfile: Dockerfile
 
   zipservice:
+    image: zipservice
     build:
       context: WeatherForecastService
       dockerfile: Dockerfile
