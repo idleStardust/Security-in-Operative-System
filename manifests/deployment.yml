@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "clusterop-eeb7"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "clusterop-eeb7"
+  template:
+    metadata:
+      labels:
+        app: "clusterop-eeb7"
+    spec:
+      containers:
+        - name: "clusterop-eeb7"
+          image: "crgateway.azurecr.io/clusterop"
+          ports:
+          - containerPort: 80
