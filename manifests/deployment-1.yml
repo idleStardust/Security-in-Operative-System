@@ -17,3 +17,4 @@ spec:
           image: "crservice.azurecr.io/clusterop"
           ports:
           - containerPort: 80
+      restartPolicy: Always
