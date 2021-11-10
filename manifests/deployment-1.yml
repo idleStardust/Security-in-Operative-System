@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "clusterop-2a0a"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "clusterop-2a0a"
+  template:
+    metadata:
+      labels:
+        app: "clusterop-2a0a"
+    spec:
+      containers:
+        - name: "clusterop-2a0a"
+          image: "crservice.azurecr.io/clusterop"
+          ports:
+          - containerPort: 80
