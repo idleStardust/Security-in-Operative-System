@@ -17,6 +17,9 @@ namespace API.Controllers
 
         [HttpPost]
         public Task Post(IFormFile zipFile) => manager.DecompressAsync(zipFile);
+
+        [HttpGet]
+        public Task<String> GetAll() => Task.FromResult("Hola XML no te queremos");
     }
 
 }
