@@ -16,13 +16,17 @@ namespace Managers.Implementation
         }
         public async Task DecompressAsync(IFormFile zipFile)
         {
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($"Zip {zipFile.FileName} on {DateTime.UtcNow.ToString()}");
+            Console.ResetColor();
+
             if (zipFile.ContentType != "application/zip")
                 await Task.FromException(new Exception("File must be of type Zip."));
 
             ZipArchive archive = new ZipArchive(zipFile.OpenReadStream());
-            
+
             await zipAccessor.AddAsync(archive);
-            
         }
     }
 }

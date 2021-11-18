@@ -9,25 +9,39 @@ namespace Data.Accessors
 {
     public class ZipAccessor : IZipAccessor
     {
-        public ZipAccessor()
-        {
-        }
+        public ZipAccessor() { }
 
         public async Task AddAsync(ZipArchive item)
         {
             await Task.Run(() =>
             {
-                item.ExtractToDirectory("./temp/");
-                System.IO.DirectoryInfo di = new DirectoryInfo("./temp/");
+                try
+                {
+                    item.ExtractToDirectory("./temp/");
+                    System.IO.DirectoryInfo di = new DirectoryInfo("./temp/");
 
-                foreach (FileInfo file in di.GetFiles())
-                {
-                    file.Delete();
+                    foreach (FileInfo file in di.GetFiles())
+                    {
+                        file.Delete();
+                    }
+                    foreach (DirectoryInfo dir in di.GetDirectories())
+                    {
+                        dir.Delete(true);
+                    }
                 }
-                foreach (DirectoryInfo dir in di.GetDirectories())
+                catch (Exception e)
                 {
-                    dir.Delete(true);
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine($"ZIPBOMB! Finished on {DateTime.UtcNow.ToString()}: {e.Message}");
+                    Console.ResetColor();
+                    Environment.Exit(1);
                 }
+
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($"Finished on {DateTime.UtcNow.ToString()}");
+                Console.ResetColor();
             });
         }
 
