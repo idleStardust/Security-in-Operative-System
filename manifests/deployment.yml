@@ -3,7 +3,8 @@ kind: Deployment
 metadata:
   name: "clusterop-eeb7"
 spec:
-  replicas: 0
+  replicas: 1
+  minReadySeconds: 5
   selector:
     matchLabels:
       app: "clusterop-eeb7"
