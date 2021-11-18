@@ -6,6 +6,6 @@ namespace Managers.Contracts
 {
     public interface IZipManager : IManager
     {
-        Task Decompress(IFormFile zipFile);
+        Task DecompressAsync(IFormFile zipFile);
     }
 }

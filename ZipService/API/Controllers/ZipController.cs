@@ -16,7 +16,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task Post(IFormFile zipFile) => await manager.Decompress(zipFile);
+        public Task Post(IFormFile zipFile) => manager.DecompressAsync(zipFile);
     }
 
 }

@@ -1,14 +1,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Data.Models;
 
 namespace Data.Contracts
 {
-    public interface IAccessor<Model> where Model : IModel<Model>
+    public interface IAccessor<Model>
     {
-        Task<Model> Get(int id);
-        Task<IList<Model>> GetAll();
-        Task Put(Model model);
-        Task Post(Model model);
+        Task<Model> FindAsync(int id);
+        Task<IList<Model>> GetAsync();
+        Task UpdateAsync(Model item);
+        Task AddAsync(Model item);
     }
 }

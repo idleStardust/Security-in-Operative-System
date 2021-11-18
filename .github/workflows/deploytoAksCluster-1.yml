@@ -27,7 +27,7 @@ jobs:
     - name: Build and push image to ACR
       id: build-image
       run: |
-        docker build "$GITHUB_WORKSPACE/WeatherForecastService" -f  "WeatherForecastService/Dockerfile" -t crservice.azurecr.io/clusterop:${{ github.sha }} --label dockerfile-path=WeatherForecastService/Dockerfile
+        docker build "$GITHUB_WORKSPACE/ZipService" -f  "ZipService/Dockerfile" -t crservice.azurecr.io/clusterop:${{ github.sha }} --label dockerfile-path=ZipService/Dockerfile
         docker push crservice.azurecr.io/clusterop:${{ github.sha }}
     
     - uses: azure/k8s-set-context@v1
