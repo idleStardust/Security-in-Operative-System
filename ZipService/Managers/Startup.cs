@@ -12,6 +12,7 @@ namespace Managers
         public static void RegisterManagers(this IServiceCollection services)
         {
             services.AddScoped<IWeatherForecastManager, WeatherForecastManager>();
+            services.AddScoped<IZipManager, ZipManager>();
         }
     }
 }

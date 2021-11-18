@@ -10,5 +10,5 @@ services:
   zipservice:
     image: abstractize/zipservice
     build:
-      context: WeatherForecastService
+      context: ZipService
       dockerfile: Dockerfile
