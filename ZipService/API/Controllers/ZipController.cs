@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using System;
 using Managers.Contracts;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,5 +22,4 @@ namespace API.Controllers
         [HttpGet]
         public Task<String> GetAll() => Task.FromResult("Hola XML no te queremos");
     }
-
 }
