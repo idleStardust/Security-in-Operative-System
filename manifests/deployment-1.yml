@@ -19,3 +19,6 @@ spec:
           image: "crservice.azurecr.io/clusterop"
           ports:
           - containerPort: 80
+      env:
+        - name: REDIS
+          value: "clusterop-eeb7"
