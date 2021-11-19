@@ -12,9 +12,10 @@ spec:
       labels:
         app: "clusterop-2a0a"
     spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
       containers:
         - name: "clusterop-2a0a"
           image: "crservice.azurecr.io/clusterop"
           ports:
           - containerPort: 80
-      restartPolicy: Always

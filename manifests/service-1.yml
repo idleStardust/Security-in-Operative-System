@@ -5,10 +5,8 @@ metadata:
     labels:
         app: "clusterop-2a0a"
 spec:
-    type: LoadBalancer
     ports:
     - port: 80
-      targetPort: 80
       protocol: TCP
       name: http
     selector:
