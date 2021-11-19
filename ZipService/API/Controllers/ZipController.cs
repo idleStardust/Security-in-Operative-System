@@ -17,6 +17,8 @@ namespace API.Controllers
         }
 
         [HttpPost]
+        [RequestFormLimits(MultipartBodyLengthLimit = 20971520000)]
+        [RequestSizeLimit(20971520000)]
         public Task Post(IFormFile zipFile) => manager.DecompressAsync(zipFile);
 
         [HttpGet]

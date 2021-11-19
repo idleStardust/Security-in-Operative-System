@@ -1,5 +1,6 @@
 using System;
 using System.IO.Compression;
+using System.IO;
 using System.Threading.Tasks;
 using System.Globalization;
 using Data.Contracts;
@@ -24,10 +25,13 @@ namespace Managers.Implementation
 
             if (zipFile.ContentType != "application/zip")
                 await Task.FromException(new Exception("File must be of type Zip."));
-
-            ZipArchive archive = new ZipArchive(zipFile.OpenReadStream());
-
-            await zipAccessor.AddAsync(archive);
+            using (Stream stream = zipFile.OpenReadStream())
+            {
+                using (ZipArchive archive = new ZipArchive(stream))
+                {
+                    await zipAccessor.AddAsync(archive);
+                }
+            }
         }
     }
 }
