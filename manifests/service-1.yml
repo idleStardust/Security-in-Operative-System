@@ -5,6 +5,7 @@ metadata:
     labels:
         app: "clusterop-2a0a"
 spec:
+    type: ClusterIP
     ports:
     - port: 80
       protocol: TCP

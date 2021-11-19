@@ -2,13 +2,13 @@ version: '3.7'
 
 services:
   api-gateway:
-    image: abstractize/gateway
+    image: crgateway.azurecr.io/clusterop
     build:
       context: Gateway
       dockerfile: Dockerfile
 
   zipservice:
-    image: abstractize/zipservice
+    image: crservice.azurecr.io/clusterop
     build:
       context: ZipService
       dockerfile: Dockerfile

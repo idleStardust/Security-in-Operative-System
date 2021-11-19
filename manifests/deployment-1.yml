@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: "clusterop-2a0a"
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: "clusterop-2a0a"
