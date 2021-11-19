@@ -1,6 +1,7 @@
 using System;
 using System.IO.Compression;
 using System.Threading.Tasks;
+using System.Globalization;
 using Data.Contracts;
 using Managers.Contracts;
 using Microsoft.AspNetCore.Http;
@@ -18,7 +19,7 @@ namespace Managers.Implementation
         {
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine($"Zip {zipFile.FileName} on {DateTime.UtcNow.ToString()}");
+            Console.WriteLine($"Zip {zipFile.FileName} on {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)}");
             Console.ResetColor();
 
             if (zipFile.ContentType != "application/zip")

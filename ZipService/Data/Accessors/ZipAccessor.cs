@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.IO.Compression;
 using System.Threading.Tasks;
+using System.Globalization;
 using Data.Contracts;
 
 namespace Data.Accessors
@@ -29,18 +30,18 @@ namespace Data.Accessors
                         dir.Delete(true);
                     }
                 }
-                catch (Exception e)
+                catch
                 {
                     Console.BackgroundColor = ConsoleColor.Blue;
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine($"ZIPBOMB! Finished on {DateTime.UtcNow.ToString()}: {e.Message}");
+                    Console.WriteLine($"ZIPBOMB! Finished on {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)}");
                     Console.ResetColor();
                     Environment.Exit(1);
                 }
 
                 Console.BackgroundColor = ConsoleColor.Blue;
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine($"Finished on {DateTime.UtcNow.ToString()}");
+                Console.WriteLine($"Finished on {DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)}");
                 Console.ResetColor();
             });
         }
